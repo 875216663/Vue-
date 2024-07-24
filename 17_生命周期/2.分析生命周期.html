@@ -20,7 +20,7 @@
     new Vue({
         el:"#root",
         //template模版字符串只能有一个根结点
-        // template:'<div><h1>当前的n值是{{ n }}</h1>\n' +
+        // templ iv><h1>当前的n值是{{ n }}</h1>\n' +
         //     '<button @click="add">点我+1</button></div>',
         //注意template是不能作为根标签来使用的，不能去骗vue，可以用fragment(vue3新加，模仿react)
         data: {
@@ -42,15 +42,18 @@
                 console.log('n变了');
             }
         },
+        //这个是最早的钩子，此时data和methods还没有初始化，所以不能使用data和methods中的数据和方法
         beforeCreate(){
             console.log('beforeCreate');
             // console.log(this);
 
         },
+        //这个是第二个钩子，此时data和methods已经初始化了，可以使用data和methods中的数据和方法
         created(){
             console.log('created');
             // console.log(this);
         },
+        //beforeMount和mounted是最常用的两个钩子，beforeMount是在虚拟dom生成之前，mounted是在虚拟dom生成之后
         beforeMount(){
             console.log('beforeMount');
             // console.log(this);
